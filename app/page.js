@@ -13,6 +13,15 @@ import{
   getDoc,
 } from 'firebase/firestore'
 import { red } from "@mui/material/colors";
+import dynamic from 'next/dynamic';
+
+const MyImportedComponent = dynamic(() => import('some/component'), {ssr: false})
+
+const App = ({ Component, pageProps }) => {
+  return(
+    <Component {...pageProps} />
+  )
+}
 
 const style = {
   position: 'absolute',
