@@ -13,15 +13,11 @@ import{
   getDoc,
 } from 'firebase/firestore'
 import { red } from "@mui/material/colors";
-import dynamic from 'next/dynamic';
 
-const MyImportedComponent = dynamic(() => import('some/component'), {ssr: false})
-
-const App = ({ Component, pageProps }) => {
-  return(
-    <Component {...pageProps} />
-  )
-}
+if(typeof window !== 'undefined')
+  {
+  // Your client-side code that uses window goes here
+  }
 
 const style = {
   position: 'absolute',
