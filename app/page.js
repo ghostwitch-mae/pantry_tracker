@@ -12,6 +12,7 @@ import{
   deleteDoc,
   getDoc,
 } from 'firebase/firestore'
+import { red } from "@mui/material/colors";
 
 const style = {
   position: 'absolute',
@@ -88,6 +89,9 @@ export default function Home() {
       alignItems={'center'}
       gap={2}
     >
+      <Typography variant={'h2'} color={'#333'} textAlign={'center'}>
+            Pantry Tracker
+          </Typography>
       <Modal
         open={open}
         onClose={handleClose}
@@ -127,10 +131,11 @@ export default function Home() {
         <Box
           width="800px"
           height="100px"
-          bgcolor={'#ADD8E6'}
+          bgcolor={'#ffa8d1'}
           display={'flex'}
           justifyContent={'center'}
           alignItems={'center'}
+          
         >
           <Typography variant={'h2'} color={'#333'} textAlign={'center'}>
             Inventory Items
@@ -148,12 +153,14 @@ export default function Home() {
               bgcolor={'#f0f0f0'}
               paddingX={5}
             >
-              <Typography variant={'h3'} color={'#333'} textAlign={'center'}>
+              <Typography variant={'h5'} color={'#000000'} textAlign={'center'}>
                 {name.charAt(0).toUpperCase() + name.slice(1)}
               </Typography>
-              <Typography variant={'h3'} color={'#333'} textAlign={'center'}>
+              <Typography variant={'h5'} color={'#000000'} textAlign={'center'}>
                 Quantity: {quantity}
-              </Typography>
+              </Typography><Button variant="contained" onClick={() => addItem(name)}>
+                Add
+              </Button>
               <Button variant="contained" onClick={() => removeItem(name)}>
                 Remove
               </Button>
